@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DCS Flask wp</title>
+</head>
+<body>
+  <main class="login_centred_box">
+    <h1>Upload your video</h1>
+    <form action="/" method="POST" enctype=multipart/form-data>
+      <div>
+        <label for="video_uploads">Choose a video to upload (MP4)</label>
+        <input type="file"
+               id="video_uploads"
+               name="video_uploads"
+               placeholder="video_uploads"
+               aria-label="video_uploads"
+               >
+         <input type="hidden" name="user_id" value="{{ user_id }}">
+      </div>
+      <div class="preview">
+        <p>No files currently selected for upload</p>
+      </div>
+      <div>
+        <button type="submit" aria-label="Next">Submit</button>
+      </div>
+    </form>
+    {% if error %}
+    <label class=error><strong>Error:</strong> {{ error }}</label>
+    {% endif %}
+  </main>
+</body>
